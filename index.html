@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Cicilan</title>
+  <script>
+    function hitungCicilan() {
+      // Mendapatkan nilai input dari pengguna
+      var harga = parseFloat(document.getElementById("harga").value);
+      var uangMuka = parseFloat(document.getElementById("uang_muka").value);
+      var tenor = parseInt(document.getElementById("tenor").value);
+
+      // Menghitung sisa yang harus dicicil
+      var sisa = harga - uangMuka;
+
+      // Menghitung jumlah cicilan per bulan
+      var cicilan = sisa / tenor;
+
+      // Menampilkan hasil pada elemen dengan id "hasil"
+      document.getElementById("hasil").innerHTML = "Cicilan per bulan: " + cicilan.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <h1>Kalkulator Cicilan</h1>
+  <form>
+    <label for="harga">Harga Barang:</label>
+    <input type="text" id="harga" placeholder="Masukkan harga barang"><br><br>
+
+    <label for="uang_muka">Uang Muka:</label>
+    <input type="text" id="uang_muka" placeholder="Masukkan uang muka"><br><br>
+
+    <label for="tenor">Tenor (bulan):</label>
+    <input type="text" id="tenor" placeholder="Masukkan tenor dalam bulan"><br><br>
+
+    <button type="button" onclick="hitungCicilan()">Hitung Cicilan</button>
+  </form>
+
+  <div id="hasil"></div>
+</body>
+</html>
